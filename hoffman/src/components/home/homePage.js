@@ -6,6 +6,16 @@ import "../../App.css";
 
 const Home = props => {
     const [merch, setMerch] = useState([])
+    const [shows, setShows] = useState([])
+
+    useEffect(() => {
+        axios
+        .get("http://localhost:5000/api/shows")
+        .then(res => {
+            setShows(res.data)
+            console.log("shows", res.data)
+        })
+    }, [])
 
     useEffect(() => {
         axios
@@ -21,20 +31,20 @@ const Home = props => {
     }, [])
 
     return (
-        <div className="container">
-            <h1 className="main_header">Hoffman House Antiques</h1>
-            <input placeholder="Search Now" type="search"></input><br></br>
-                <div className="dropcontainer">                
-                    {merch.map(cat => {
-                        return  <div className='dropdown'> 
-                                    <button className="dropbtn">{cat.category}</button>
-                                        <div className="dropdown-content">
-                                            <a href="#">{cat.description}</a>
-                                        </div>
-                                    </div>
-                    })}
-                </div>
+        <div className="container">            
+                <div className="showsandslide">
             <SlideShow/>
+            <div className="showscontainer">
+                <h1>UpComing Shows</h1>
+                {shows.map(show => {
+                    return <div className="text_box">
+                         <h3>Show: {show.name}</h3>
+                        <h3>Location: {show.location}</h3>
+                        <h3>Date: {show.date}</h3>
+                        </div>
+                })}
+            </div>
+            </div>
         </div>
     )
 }

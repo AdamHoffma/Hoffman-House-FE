@@ -90,6 +90,7 @@ const properties = {
 
 const SlideShow = () => {
     return (         
+      <div classname="slide_cont">
       <Slide {...properties}>
         <div className="each-slide">
           <div style={{'backgroundImage': `url(${slideImages[0]})`}}>
@@ -107,7 +108,7 @@ const SlideShow = () => {
           </div>
         </div>
       </Slide>   
-
+      </div>
     )
 }
 

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url("http://static-wix-blog.wix.com/blog/wp-content/uploads/2010/06/07130513/Textured-background.jpg")
 }
 
 code {
@@ -14,7 +15,18 @@ code {
 
 .container {
   width: 1000px;
-  margin: auto
+  margin: auto;
+  background-color: lightskyblue
+}
+
+.searchbar {
+  height: 40px;
+  border-radius: 5px;
+  width: 300px;
+  background-color: lightgray;
+  border: none;
+  font-size: 22px;
+  margin-bottom: 5px;
 }
 
 .navigation {
@@ -25,7 +37,8 @@ code {
 .dropcontainer {
   width: 1000px;
   background-color: beige;
-  margin: auto
+  margin: auto;
+  margin-bottom: 20px
 }
 
 .dropbtn {
@@ -73,8 +86,10 @@ code {
 /* CSS for SlideShow */
 
 .react-slideshow-container {
-  width: 500px;
-  margin: auto
+  width: 700px;
+  margin: auto;
+  padding-right: 20px;
+  padding-left: 20px
 }
 .react-slideshow-wrapper {
   width: 300px
@@ -85,7 +100,11 @@ code {
   align-items: flex-start;  
   background-size: cover;
   height: 300px;
-  width: 500px;  
+  width: 700px;  
+}
+
+.images-wrap {
+  width: 700px
 }
 
 .each-slide span{
@@ -98,6 +117,34 @@ code {
 .indicators {  
   display: flex;
   align-items: flex-start;
+}
+
+.showsandslide {
+  display: flex
+}
+
+.showscontainer {
+  padding-left: 20px
+}
+
+.text_box {
+  background-color: lightgray;
+  text-align: left
+}
+
+/* Footer */
+
+.footercontainer  { 
+  width: 1000px;
+  background-color: beige;  
+  margin: auto;  
+}
+
+nav a {
+  padding: 40px;
+  text-decoration: none;
+  color: black;
+  font-size: 1.6rem
 }
 
 
