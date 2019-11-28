@@ -5,7 +5,7 @@ import Home from './components/home/homePage.js'
 import Footer from './components/footer/footer.js'
 import Nav from './components/nav/nav.js'
 import ItemForm from './components/form/newItem.js'
-import UploadContainer from './containers/UploadContainers.js'
+import imgUpload from './components/imgUpload/imgUpload.js'
 import "antd/dist/antd.css";
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <Route exact path='/' component={Home}/>
       <Route exact path='/' component={Footer}/>
       <Route path='/additems' component={ItemForm}/>
-      <UploadContainer/>
+      <Route path='/upload' component={imgUpload}/>
     </div>
   );
 }

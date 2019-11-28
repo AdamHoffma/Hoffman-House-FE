@@ -18,7 +18,7 @@ const Uploader = () => {
         onChange(info) {
             const { status } = info.file;
             if (status !== 'uploading') {
-                console.log(info.file, info.fileList);
+                console.log(info.file.response, info.fileList);
             }
 
             if (status === 'done') {
@@ -34,7 +34,7 @@ const Uploader = () => {
             <Dragger {...props}>
                 <div style={{width: '100%'}}>
                     <p className="ant-upload-drag-icon">
-                        <Icon type="inbox" />
+                        <Icon type="inbox" />                        
                     </p>
                     <p className="ant-upload-text">Click or drag file to this area to upload</p>
                 </div>
