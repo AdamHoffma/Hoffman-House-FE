@@ -29,7 +29,9 @@ const ImgUpload = props => {
         const showWidget = (widget) => {
             widget.open()
         }
-    useEffect(() => {
+
+        // how to get my DBs connected.... Images with despcriptions
+   /* useEffect(() => {
         axios
             .get("http://localhost:5000/api/merchandise")
             .then(res => {
@@ -52,7 +54,7 @@ const ImgUpload = props => {
                         console.log("imageContainer", imageContainer)
                     })
             })
-    }, [])
+    }, [])*/
     
   
     
