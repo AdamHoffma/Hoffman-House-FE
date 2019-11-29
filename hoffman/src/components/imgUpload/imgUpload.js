@@ -29,8 +29,32 @@ const ImgUpload = props => {
         const showWidget = (widget) => {
             widget.open()
         }
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/api/merchandise")
+            .then(res => {
+                const merch = res.data.map(y => y)
+                console.log("y", merch)
+                axios
+                    .get("https://res.cloudinary.com/hoffman-house/image/list/test.json")
+                    .then(res => {
+                        const imageContainer = res.data.resources.map(x => x)
+                        const both = {merch, imageContainer}
+                        const two = imageContainer.map(c => {
+                            merch.map(r => { return {
+                                image: r[0].category,
+                                format: c[0].version
+                            }
+                            })
+                        })
+                        console.log('both', both)
+                            console.log("two", two)
+                        console.log("imageContainer", imageContainer)
+                    })
+            })
+    }, [])
     
-   
+  
     
     
    
