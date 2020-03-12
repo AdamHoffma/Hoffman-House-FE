@@ -4,6 +4,7 @@ import axios from "axios"
 
 const ImgUpload = props => {
     const [image, setImage] = useState([])
+    const [merch, setMerch] =useState([])
 
     useEffect(()=> {
         axios
@@ -13,6 +14,17 @@ const ImgUpload = props => {
             setImage(res.data.resources)
         })
     }, [])
+
+    
+    useEffect(()  => {
+        axios
+        .get('http://localhost:5000/api/merchandise')
+        .then(res => {
+            console.log('res', res)
+            setMerch(res.data)
+        })
+    }, [])  
+    console.log(merch)
 
     console.log(image)
 
@@ -54,14 +66,7 @@ const ImgUpload = props => {
                         console.log("imageContainer", imageContainer)
                     })
             })
-    }, [])*/
-    
-  
-    
-    
-   
-
-    
+    }, [])*/    
     
     return (
         <div>
@@ -70,7 +75,7 @@ const ImgUpload = props => {
             {image.map ((data, index) => (
                 <div key={index}>
                     
-                    <img width="300" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.public_id}.jpg`}/>
+                    <img height="300" width="300" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.public_id}.jpg`}/>
                 </div>
             ))}   
             </CloudinaryContext>

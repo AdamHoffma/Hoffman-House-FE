@@ -4,20 +4,47 @@ import {Form, Field, withFormik} from 'formik'
 import * as Yup from 'yup'
 import Dropzone from 'react-dropzone'
 import UploadContainer from '../../containers/UploadContainers.js'
-import { instanceOf } from "prop-types"
+
 
 
 const ItemForm = ({errors, touched, values, handleSubmit}) => {   
     const [item, SetItem] = useState([])
+    const [image, setImage] = useState([])
 
     useEffect(()  => {
         axios
         .get('http://localhost:5000/api/merchandise')
-        .then(res => {
-            console.log('res', res)
+        .then(res => {            
             SetItem(res.data)
         })
-    }, [])    
+    }, [])
+
+    console.log("Image", image)
+
+    useEffect(()=> {
+        axios
+        .get('https://res.cloudinary.com/hoffman-house/image/list/test.json')
+        .then(res => {            
+            setImage(res.data.resources)
+        })
+    }, [])
+
+    console.log("Item", item)
+
+    
+    const checkUploadResult = (resultEvent) => {
+        if (resultEvent.event === "success") {
+            console.log(resultEvent.info.secure_url)
+        }
+    }
+    
+
+    let widget = window.cloudinary.createUploadWidget({
+        cloudName: "hoffman-house", uploadPreset: "kov2px0a", tags:['test'] }, (error, result) => {checkUploadResult(result)})
+        
+        const showWidget = (widget) => {
+            widget.open()
+        }
     
     return (
         <div>
@@ -31,6 +58,7 @@ const ItemForm = ({errors, touched, values, handleSubmit}) => {
                 <Field type="text" name="weight" placeholder="weight"/>
                 <Field type="text" name="quanity" placeholder="quanity"/>
                 <button type="submit">Add Item</button>
+                <button onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload files</button>
                 <UploadContainer/>
             </Form>
             {item.map(i => {
