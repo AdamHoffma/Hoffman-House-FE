@@ -10,7 +10,7 @@ const ImgUpload = props => {
         axios
         .get('https://res.cloudinary.com/hoffman-house/image/list/test.json')
         .then(res => {
-            console.log(res)
+            console.log("Response from cloudinar", res)
             setImage(res.data.resources)
         })
     }, [])
@@ -20,17 +20,15 @@ const ImgUpload = props => {
         axios
         .get('http://localhost:5000/api/merchandise')
         .then(res => {
-            console.log('res', res)
+            console.log("response from BE", res)
             setMerch(res.data)
         })
     }, [])  
-    console.log(merch)
-
-    console.log(image)
+    
 
     const checkUploadResult = (resultEvent) => {
         if (resultEvent.event === "success") {
-            console.log(resultEvent.info.secure_url)
+            console.log("cloudinary upload result", resultEvent.info.secure_url)
         }
     }
     
