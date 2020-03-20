@@ -10,8 +10,7 @@ const ImgUpload = props => {
     useEffect(()=> {
         axios
         .get('https://res.cloudinary.com/hoffman-house/image/list/test.json')
-        .then(res => {
-            console.log("Response from cloudinar", res)
+        .then(res => {            
             setImage(res.data.resources)
         })
     }, [])
@@ -49,6 +48,18 @@ const ImgUpload = props => {
         const showWidget = (widget) => {
             widget.open()
         }
+
+    console.log("Response from cloudinary", image[0])
+
+    const Idunno = () => {
+        image.map((data, index) => {
+            console.log("data", data.public_id)
+        })
+    }
+
+    Idunno()
+
+    
 
         // how to get my DBs connected.... Images with despcriptions
    /* useEffect(() => {

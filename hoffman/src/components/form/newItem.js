@@ -86,7 +86,7 @@ const FormikForm = withFormik({
 
     handleSubmit(values) {
         axios
-        .post("http://localhost:5000/api/merchandise", values)
+        .post("http://localhost:5000/photo", values)
     
     .then(res => {
         console.log(res)
