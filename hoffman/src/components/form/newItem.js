@@ -30,6 +30,7 @@ const ItemForm = ({errors, touched, values, handleSubmit}) => {
     }, [])
 
     console.log("Item", item)
+    console.log('Image', image)
 
     
     const checkUploadResult = (resultEvent) => {

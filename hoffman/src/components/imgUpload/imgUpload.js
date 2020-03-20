@@ -4,7 +4,8 @@ import axios from "axios"
 
 const ImgUpload = props => {
     const [image, setImage] = useState([])
-    const [merch, setMerch] =useState([])
+    const [merch, setMerch] = useState([])
+    const [test, setTest] = useState([])
 
     useEffect(()=> {
         axios
@@ -25,12 +26,21 @@ const ImgUpload = props => {
         })
     }, [])  
     
+    useEffect(() => {
+        axios 
+        .get(`http://res.cloudinary.com/hoffman-house/image/upload/`)
+        .then(res => {
+            setTest(res)
+        })
+    }, [])
+    console.log("Test", test)
 
     const checkUploadResult = (resultEvent) => {
         if (resultEvent.event === "success") {
             console.log("cloudinary upload result", resultEvent.info.secure_url)
         }
     }
+    
     
 
     let widget = window.cloudinary.createUploadWidget({
