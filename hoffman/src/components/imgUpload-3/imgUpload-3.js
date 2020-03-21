@@ -76,7 +76,7 @@ const Products = () => {
             {merch.map(( data, index ) => (
                 <div key={index}>
                  <img width="400px" height="300px" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
-                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.category}</p>
+                    <p style={{color: "silver", fontSize: "26px", textShadow: "2px 2px black"}}>{data.category}</p>
                     <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.description}</p>
                     <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>${data.price}</p>
                     <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.weight}OZ</p>
