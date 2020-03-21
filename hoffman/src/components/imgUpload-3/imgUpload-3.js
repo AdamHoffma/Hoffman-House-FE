@@ -6,7 +6,7 @@ import { CloudinaryContext } from 'cloudinary-react'
 const Products = () => {
     const [product, setProduct] = useState({})
     const [image, setImage] = useState([])
-    const [merch, setMerch] = useState([])
+    const [merch, setMerch] = useState([])    
 
     useEffect(() => {
         axios
@@ -38,11 +38,14 @@ const Products = () => {
         
         const showWidget = (widget) => {
             widget.open()
-        }
-
+        }   
 
     const Submit = (e) => {
-        axios.post('http://localhost:5000/api/merchandise', product)
+        const postImage = {
+            image: image
+        }
+        console.log(postImage)
+        axios.post('http://localhost:5000/api/merchandise', product, postImage)
         .then(res => {
 
         })
@@ -53,20 +56,14 @@ const Products = () => {
 
     const ChangeHandler = e => {
         e.preventDefault()
-        setProduct({...product, [e.target.name]: e.target.value})
+        setProduct({...product, [e.target.name]: e.target.value, image})
     }
     console.log("PRODUCT", product)
-
-    const fuckyou = () => {
-        merch.map(image => {
-            console.log('FUCKYOU', image.image)
-        })
-    }
-    fuckyou()
+    
     return (
         <div>
             <form type="submit">
-                <input onChange={ChangeHandler} placeholder="image" name="image" value={image} type='text'/>
+                <input onChange={ChangeHandler} placeholder="image" name="image" type='text'/>
                 <input onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
                 <input onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
                 <input onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
@@ -78,7 +75,12 @@ const Products = () => {
             <CloudinaryContext cloudName="hoffman-house">
             {merch.map(( data, index ) => (
                 <div key={index}>
-                 <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
+                 <img width="400px" height="300px" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
+                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.category}</p>
+                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.description}</p>
+                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>${data.price}</p>
+                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.weight}OZ</p>
+                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.quanity}LEFT!</p> 
                  </div>
             ))}
             </CloudinaryContext>
