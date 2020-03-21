@@ -56,6 +56,13 @@ const Products = () => {
         setProduct({...product, [e.target.name]: e.target.value})
     }
     console.log("PRODUCT", product)
+
+    const fuckyou = () => {
+        merch.map(image => {
+            console.log('FUCKYOU', image.image)
+        })
+    }
+    fuckyou()
     return (
         <div>
             <form type="submit">
@@ -69,9 +76,11 @@ const Products = () => {
             </form>
             <button onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload files</button>
             <CloudinaryContext cloudName="hoffman-house">
-            {merch.map(image => {
-                return <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${image.image}.jpg`}/>
-            })}
+            {merch.map(( data, index ) => (
+                <div key={index}>
+                 <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
+                 </div>
+            ))}
             </CloudinaryContext>
         </div>
     )
