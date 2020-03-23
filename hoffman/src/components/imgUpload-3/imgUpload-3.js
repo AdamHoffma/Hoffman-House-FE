@@ -28,8 +28,7 @@ const Products = () => {
     console.log("IMAGE", image)
 
     const checkUploadResult = (resultEvent) => {
-        if (resultEvent.event === "success") {
-            window.reload()
+        if (resultEvent.event === "success") {            
             console.log("cloudinary upload result", resultEvent.info.secure_url)
         }
     }   
@@ -63,8 +62,7 @@ const Products = () => {
     
     return (
         <div>
-            <form type="submit">
-                <input onChange={ChangeHandler} placeholder="image" name="image" type='text'/>
+            <form type="submit">                
                 <input onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
                 <input onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
                 <input onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
@@ -73,7 +71,8 @@ const Products = () => {
                 <button onClick={Submit}>Add</button>
             </form>
             <button onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload files</button>
-            <CloudinaryContext cloudName="hoffman-house">
+            <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />
+            {/* <CloudinaryContext cloudName="hoffman-house">
             {merch.map(( data, index ) => (
                 <div key={index}>
                  <img width="400px" height="300px" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
@@ -84,7 +83,7 @@ const Products = () => {
                     <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.quanity}LEFT!</p> 
                  </div>
             ))}
-            </CloudinaryContext>
+            </CloudinaryContext> */}
         </div>
     )
 }
