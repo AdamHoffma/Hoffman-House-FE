@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import UploadContainer from '../../containers/UploadContainers.js'
 import { CloudinaryContext } from 'cloudinary-react'
-import Nav from "../nav/nav.js"
+import "./ProductForm.css"
 
 const ProductForm = () => {
     const [product, setProduct] = useState({})
@@ -61,20 +61,18 @@ const ProductForm = () => {
     }
     console.log("PRODUCT", product)
     
-    return (     
-        <div>   
-        <Nav />
+    return (            
         <div className="outer_product_container">
                 <h3 className="product_header">Add New Products</h3>
                     <form className="product_form" type="submit">                
-                        <input onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
-                        <input className="category_field" onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
-                        <input onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
-                        <input onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
-                        <input onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
-                        <button onClick={Submit}>Add</button>
+                        <input className="input" onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
+                        <input className="description_field" onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
+                        <input className="input" onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
+                        <input className="input" onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
+                        <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
+                        <button className="button_add_product" onClick={Submit}>Add</button>
                     </form>
-                    <button className="upload_widget" onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload files</button>
+                    <button className="upload_widget" onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload image</button>
                     <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />
             {/* <CloudinaryContext cloudName="hoffman-house">
             {merch.map(( data, index ) => (
@@ -88,8 +86,7 @@ const ProductForm = () => {
                  </div>
             ))}
             </CloudinaryContext> */}
-        </div>
-        </div>
+        </div>        
     )
 }
 
