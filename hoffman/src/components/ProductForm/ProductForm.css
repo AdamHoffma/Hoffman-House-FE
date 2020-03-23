@@ -1,5 +1,5 @@
 .outer_product_container {
-    width: 80%;
+    width: 70%;
     background-color: bisque;
     margin: auto;  
     display: flex  
@@ -7,6 +7,8 @@
 
 .product_header {
     font-size: 2rem;    
+    color: rgb(226, 224, 224);
+    text-shadow: .07rem .07rem black;
 }
 
 .product_form {
