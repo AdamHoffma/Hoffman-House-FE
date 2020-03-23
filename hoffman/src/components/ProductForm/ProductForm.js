@@ -61,19 +61,23 @@ const ProductForm = () => {
     }
     console.log("PRODUCT", product)
     
-    return (            
-        <div className="outer_product_container">
+    return (          
+        <div>  
+        
                 <h3 className="product_header">Add New Products</h3>
+                <div className="outer_product_container">
                     <form className="product_form" type="submit">                
                         <input className="input" onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
-                        <input className="description_field" onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
+                        <textarea className="description_field" onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
                         <button className="button_add_product" onClick={Submit}>Add</button>
                     </form>
-                    <button className="upload_widget" onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload image</button>
-                    <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />
+                    <div className="image_button_container">
+                    <img className="product_image" src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />
+                    <button className="upload_widget" onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload image</button>      
+                    </div>              
             {/* <CloudinaryContext cloudName="hoffman-house">
             {merch.map(( data, index ) => (
                 <div key={index}>
@@ -86,7 +90,8 @@ const ProductForm = () => {
                  </div>
             ))}
             </CloudinaryContext> */}
-        </div>        
+        </div>   
+        </div>     
     )
 }
 
