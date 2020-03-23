@@ -29,6 +29,7 @@ const Products = () => {
 
     const checkUploadResult = (resultEvent) => {
         if (resultEvent.event === "success") {
+            window.reload()
             console.log("cloudinary upload result", resultEvent.info.secure_url)
         }
     }   
