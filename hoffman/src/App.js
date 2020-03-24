@@ -8,6 +8,7 @@ import ItemForm from './components/form/newItem.js'
 import imgUpload from './components/imgUpload/imgUpload.js'
 import Merchandise from './components/merchandise/merchandise'
 import ProductForm from './components/ProductForm/ProductForm'
+import ProductPreview from './components/ProductPreview/ProductPreview'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='/upload' component={imgUpload}/>
       <Route path='/merchandise' component={Merchandise} />
       <Route path ='/products' component={ProductForm} />
+      <Route path='/preview' component={ProductPreview} />
     </div>
   );
 }
