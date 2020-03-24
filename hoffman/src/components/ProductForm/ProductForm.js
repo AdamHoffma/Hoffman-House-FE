@@ -19,21 +19,19 @@ const ProductForm = () => {
     }, [])
 
     console.log("MERCH", merch)
+    
 
-    useEffect(() => {
-        axios
+    const checkUploadResult = (resultEvent) => {
+        if (resultEvent.event === "success") {            
+            axios
         .get('https://res.cloudinary.com/hoffman-house/image/list/test.json')
         .then(res => {            
             setImage(res.data.resources[0].public_id)            
         })
-    }, [])
-    console.log("IMAGE", image)
-
-    const checkUploadResult = (resultEvent) => {
-        if (resultEvent.event === "success") {            
             console.log("cloudinary upload result", resultEvent.info.secure_url)
         }
     }   
+    console.log("IMAGE", image)
 
     let widget = window.cloudinary.createUploadWidget({
         cloudName: "hoffman-house", uploadPreset: "kov2px0a", tags:['test'] }, (error, result) => {checkUploadResult(result)})
