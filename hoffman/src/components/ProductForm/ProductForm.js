@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import UploadContainer from '../../containers/UploadContainers.js'
 import { CloudinaryContext } from 'cloudinary-react'
+import { Link } from "react-router-dom"
 import "./ProductForm.css"
 
 const ProductForm = () => {
@@ -72,7 +73,7 @@ const ProductForm = () => {
                         <input className="input" onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
-                        <button className="button_add_product" onClick={Submit}>Add Product</button>
+                        <button className="button_add_product" onClick={Submit}><Link to="/preview">Add Product</Link></button>
                     </form>
                     <div className="image_button_container">
                     <img className="product_image" src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />

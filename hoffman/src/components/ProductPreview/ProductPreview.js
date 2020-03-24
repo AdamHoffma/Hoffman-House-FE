@@ -4,7 +4,7 @@ import { setLocale } from 'yup'
 
 const ProductPreview = () => {
     const [product, setProduct] = useState([])
-    const [all, setAll] = useState()
+    const [all, setAll] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:5000/api/merchandise')
@@ -14,26 +14,40 @@ const ProductPreview = () => {
     }, [])
 
     console.log(product)
-
     
 
     console.log('ALL', all)
 
-    const last = product.slice(-1).map(p => {return p.id})
+    const id = product.slice(-1).map(p => {return p.id})
+    console.log("ID", id)
+    const newId = id[0] 
+    console.log('NEWID', newId)  
+   
 
-    console.log(last[0])
-    useEffect(() => {
-        axios.get(`http://localhost:5000/api/merchandise/:${last[0]}`)
+    
+
+    useEffect(() => {       
+       
+        axios.get(`http://localhost:5000/api/merchandise/${newId}`)
         .then(res => {
-            setAll(res)
+            setAll(res.data)
+            console.log("RES", res.data)
         })
-    }, [])
+    }, [product])
 
-    console.log("PRODUCT", product.slice(-1))
+    console.log("PRODUCT", product.slice(-1)[0])
     return (
         <div>
-            {product.map(p => {
-                return <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${p.image}.jpg`} />
+            <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${all.image}.jpg`} />
+            {product.slice(-1).map(p => {
+                return <div>
+                    <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${p.image}.jpg`} />
+                    <p>{p.category}</p>
+                    <p>{p.description}</p>
+                    <p>{p.price}</p>
+                    <p>{p.quanity}</p>
+                    <p>{p.weight}</p>
+                </div>
             })}
         </div>
     )
