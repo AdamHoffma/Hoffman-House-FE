@@ -10,7 +10,8 @@ const ProductPreview = () => {
     useEffect(() => {
         axios.get('http://localhost:5000/api/merchandise')
         .then(res => {
-            setProduct(res.data)       
+            setProduct(res.data)
+            console.log("RES.DATA", res.data)       
         })
     }, [])    
     
@@ -42,7 +43,7 @@ const ProductPreview = () => {
             <p>Description: {all.description}</p>
             <p>Price: ${all.price}</p>
             </div>
-            <button onClick={Delete}><Link to="/products">Delete</Link></button>
+            <button onClick={Delete}>Delete</button>
         </div>
     )
 }
