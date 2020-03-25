@@ -1,0 +1,28 @@
+.image_container {
+    margin: auto;    
+}
+
+.product_image_preview {
+    width: 30%;
+    height: 30%;
+    margin-top: 3rem;
+    border: 5px solid white
+}
+
+p {
+    color: white;
+    background-color: black;
+    width: 30%;
+    margin: auto
+}
+
+button {
+    width: 20%;
+    height: 2.4rem;
+    margin: 1rem;
+    border-radius: .5rem;
+    color: blue;
+    background-color: red;
+    border: none;
+    cursor: pointer;
+}
