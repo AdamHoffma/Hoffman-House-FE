@@ -24,14 +24,23 @@ const Merchandise = () => {
         <Nav />        
         <CloudinaryContext>
         <div className="image_container_merchandise">
-            {image.map((data, index) => (                
-                <div className="inner_container_merchandise" key={index}>
+            {image.map((data, index) => {
+                if (data.category == "Vintage") {                                
+                 return <div className="inner_container_merchandise" key={index}>
+                    <img className="merchandise" height="300" width="300" 
+                    src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
+                    <p className='merchandise_description_text'>Description: {data.description}</p>
+                    <p className='merchandise_description_text'>Price: ${data.price}</p>
+                </div> }
+                else if (data.category == "Decor") {
+                    return <div className="inner_container_merchandise" key={index}>
                     <img className="merchandise" height="300" width="300" 
                     src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
                     <p className='merchandise_description_text'>Description: {data.description}</p>
                     <p className='merchandise_description_text'>Price: ${data.price}</p>
                 </div>
-            ))}
+                }
+            })}
         </div>
         </CloudinaryContext>
         
