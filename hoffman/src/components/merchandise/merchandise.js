@@ -5,7 +5,7 @@ import axios from 'axios'
 import Nav from '../nav/nav.js'
 import './merchandise.css'
 
-const Merchandise = ({props}) => {
+const Merchandise = props => {
     const [image, setImage] = useState([])
     
     useEffect(() => {

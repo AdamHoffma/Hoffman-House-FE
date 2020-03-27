@@ -19,10 +19,10 @@ function App() {
       <Route exact path='/' component={Footer}/>
       <Route path='/additems' component={ItemForm}/>
       <Route path='/upload' component={imgUpload}/>
-      <Route path='/merchandise' render={props => <Merchandise image={props.image} /> } />
+      <Route path='/merchandise' component={Merchandise} />
       <Route path ='/products'  render={props => <ProductForm history={props.history} />} />
       <Route path='/preview' render={props => <ProductPreview history={props.history} />} />
-      <Route path='/productcard/:id' render={props => <ProductCard image={props.image} /> } />
+      <Route path='/productcard/:id' component={ProductCard} />
     </div>
   );
 }
