@@ -1,3 +1,21 @@
 .image_container_merchandise {
     display: flex;
+    width: 80%;
+    background-color: steelblue;
+    margin: auto; 
+    flex-direction: row;    
+}
+
+.inner_container_merchandise {
+    flex: 33.33%;
+    padding: 1rem;
+    border: 1px .5px solid beige
+}
+
+.merchandise {
+    border: 2px solid black
+}
+
+.merchandise_description_text {
+    color: white
 }

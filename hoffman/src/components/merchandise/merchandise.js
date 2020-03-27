@@ -21,17 +21,20 @@ const Merchandise = () => {
 
     return (
         <div>
-        <Nav />
+        <Nav />        
         <CloudinaryContext>
-            {image.map((data, index) => (
-                <div className="image_container_merchandise" key={index}>
+        <div className="image_container_merchandise">
+            {image.map((data, index) => (                
+                <div className="inner_container_merchandise" key={index}>
                     <img className="merchandise" height="300" width="300" 
                     src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
-                    <p className='merchandise_description'>{data.description}</p>
-                    <p className='merchandise_price'>{data.price}</p>
+                    <p className='merchandise_description_text'>Description: {data.description}</p>
+                    <p className='merchandise_description_text'>Price: ${data.price}</p>
                 </div>
             ))}
+        </div>
         </CloudinaryContext>
+        
         </div>
     )
 }
