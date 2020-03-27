@@ -9,6 +9,7 @@ import imgUpload from './components/imgUpload/imgUpload.js'
 import Merchandise from './components/merchandise/merchandise'
 import ProductForm from './components/ProductForm/ProductForm'
 import ProductPreview from './components/ProductPreview/ProductPreview'
+import ProductCard from './components/ProductCard/ProductCard'
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
       <Route exact path='/' component={Footer}/>
       <Route path='/additems' component={ItemForm}/>
       <Route path='/upload' component={imgUpload}/>
-      <Route path='/merchandise' component={Merchandise} />
+      <Route path='/merchandise' render={props => <Merchandise image={props.image} /> } />
       <Route path ='/products'  render={props => <ProductForm history={props.history} />} />
       <Route path='/preview' render={props => <ProductPreview history={props.history} />} />
+      <Route path='/productcard/:id' render={props => <ProductCard image={props.image} /> } />
     </div>
   );
 }
