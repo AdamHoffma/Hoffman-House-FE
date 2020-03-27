@@ -3,7 +3,7 @@ import axios from 'axios'
 import './ProductPreview.css'
 import { Link } from 'react-router-dom'
 
-const ProductPreview = () => {
+const ProductPreview = ({history}) => {
     const [product, setProduct] = useState([])
     const [all, setAll] = useState([])
 
@@ -35,6 +35,11 @@ const ProductPreview = () => {
         })
     }
 
+    const AddMore = () => {
+        history.push('/products')
+    }
+    console.log("HISTORY", history)
+
     console.log("PRODUCT", product.slice(-1)[0])
     return (
         <div className="image_container">
@@ -44,6 +49,7 @@ const ProductPreview = () => {
             <p>Price: ${all.price}</p>
             </div>
             <button onClick={Delete}>Delete</button>
+            <button onClick={AddMore}>Add Another Product</button>
         </div>
     )
 }
