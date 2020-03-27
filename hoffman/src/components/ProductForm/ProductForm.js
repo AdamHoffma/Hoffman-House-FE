@@ -5,7 +5,7 @@ import { CloudinaryContext } from 'cloudinary-react'
 import { Link } from "react-router-dom"
 import "./ProductForm.css"
 
-const ProductForm = () => {
+const ProductForm = ({history, location}) => {
     const [product, setProduct] = useState({})
     const [image, setImage] = useState([])
     const [merch, setMerch] = useState([])    
@@ -14,7 +14,7 @@ const ProductForm = () => {
         axios
         .get('http://localhost:5000/api/merchandise')
         .then(res => {
-            setMerch(res.data)
+            setMerch(res.data)            
         })
     }, [])
 
@@ -47,11 +47,12 @@ const ProductForm = () => {
         console.log(postImage)
         axios.post('http://localhost:5000/api/merchandise', product, postImage)
         .then(res => {
-
+            
         })
         .catch(error => {
             console.log("ERROR", error)
         })
+        history.push('preview')
     }
 
     const ChangeHandler = e => {
@@ -71,7 +72,7 @@ const ProductForm = () => {
                         <input className="input" onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
-                        <button className="button_add_product" onClick={Submit}><Link to="/preview">Add Product</Link></button>
+                        <button className="button_add_product" onClick={Submit}>Add Product</button>
                     </form>
                     <div className="image_button_container">
                     <img className="product_image" src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />

@@ -20,7 +20,7 @@ function App() {
       <Route path='/upload' component={imgUpload}/>
       <Route path='/merchandise' component={Merchandise} />
       <Route path ='/products'  render={props => <ProductForm history={props.history} />} />
-      <Route path='/preview' component={ProductPreview} />
+      <Route path='/preview' render={props => <ProductPreview history={props.history} />} />
     </div>
   );
 }

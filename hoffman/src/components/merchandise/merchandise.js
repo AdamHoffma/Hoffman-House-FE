@@ -7,10 +7,10 @@ const Merchandise = () => {
 
     useEffect(() => {
         axios
-        .get('https://res.cloudinary.com/hoffman-house/image/list/test.json')
+        .get('http://localhost:5000/api/merchandise')
         .then(res => {
-            console.log(res)
-            setImage(res.data.resources)
+            console.log("Merchandise", res)
+            setImage(res.data)
         })
         .catch(error => {
             console.log(error)
@@ -23,7 +23,7 @@ const Merchandise = () => {
             {image.map((data, index) => (
                 <div key={index}>
                     <img className="merchandise" height="300" width="300" 
-                    src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.public_id}.jpg`}/>
+                    src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
                 </div>
             ))}
         </CloudinaryContext>
