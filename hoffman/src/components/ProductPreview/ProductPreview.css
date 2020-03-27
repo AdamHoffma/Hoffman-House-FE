@@ -9,7 +9,7 @@
     border: 5px solid white
 }
 
-p {
+.preview_text {
     color: white;
     background-color: black;
     width: 30%;
