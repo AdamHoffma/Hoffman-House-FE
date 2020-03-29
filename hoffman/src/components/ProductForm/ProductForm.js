@@ -68,7 +68,9 @@ const ProductForm = ({history, location}) => {
                 <div className="outer_product_container">
                     <form className="product_form" type="submit">                
                         <input className="input" onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
+                        <input className="input" onChange={ChangeHandler} placeholder="name" name="name" type='text' />
                         <textarea className="description_field" onChange={ChangeHandler} placeholder="description" name="description" type='text'/>
+                        <input className="input" onChange={ChangeHandler} placeholder="SKU" name="SKU" type='text' />
                         <input className="input" onChange={ChangeHandler} placeholder="price" name="price" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="weight" name="weight" type='text'/>
                         <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
