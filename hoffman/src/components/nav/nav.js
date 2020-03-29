@@ -13,8 +13,7 @@ const Nav = ({ history }) => {
         })
         .catch(error => {
             console.log("error", error)
-    })
-    
+    })    
     }, [])
 
     // const Submit = () => {
@@ -32,11 +31,8 @@ return (
                 <div className="dropcontainer">                
                     {merch.map(cat => {
                         return  <div className='dropdown'> 
-                                    <button onClick={() => history.push(`/merchandise/${cat.category}`)} className="dropbtn">{cat.category}</button>
-                                        <div className="dropdown-content">
-                                            <a href="#">{cat.description}</a>
-                                        </div>
-                                    </div>
+                                    <button onClick={() => history.push(`/merchandise/${cat.category}`)} className="dropbtn">{cat.category}</button>                                        
+                                </div>
                     })}
                 </div>
     </div>

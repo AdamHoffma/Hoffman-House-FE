@@ -8,7 +8,7 @@ import './merchandise.css'
 const Merchandise = props => {
     const [image, setImage] = useState([])
     const [merch, setMerch] = useState([])
-    console.log('HISTORY', props.history)
+    console.log('HISTORY', props)
     useEffect(() => {
         axios
         .get('http://localhost:5000/api/merchandise')
@@ -31,7 +31,7 @@ const Merchandise = props => {
         .catch(error => {
             console.log(error)
         })
-    }, [])
+    }, [props.match.params.id])
     console.log(props)
 
     return (
