@@ -51,7 +51,7 @@ const ProductPreview = ({history}) => {
                 <p className="preview_text">Price: ${all.price}</p>
                 <p className="preview_text">Quanity: {all.quanity}</p>
                 <p className="preview_text">Category: {all.category}</p>
-                <p className="preview_text">Weight: {all.weight}</p>                
+                <p className="preview_text">Weight: {all.weight} oz</p>                
             </div>
             <button onClick={Delete}>Delete</button>
             <button onClick={AddMore}>Add Another Product</button>

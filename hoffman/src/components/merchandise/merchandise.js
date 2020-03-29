@@ -31,14 +31,14 @@ const Merchandise = props => {
                  return <div className="inner_container_merchandise" key={index}>
                     <img className="merchandise" height="300" width="300" 
                     src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
-                    <p className='merchandise_description_text'>Description: {data.description}</p>
+                    <p className='merchandise_description_text'>{data.name}</p>
                     <p className='merchandise_description_text'>Price: ${data.price}</p>
                 </div> }
                 else if (data.category == "Decor") {
                     return <div className="inner_container_merchandise" key={index}>
                     <Link to={`/productcard/${data.id}`}><img className="merchandise" height="300" width="300" 
                     src ={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/></Link>
-                    <p className='merchandise_description_text'>Description: {data.description}</p>
+                    <p className='merchandise_description_text'> {data.name}</p>
                     <p className='merchandise_description_text'>Price: ${data.price}</p>
                 </div>
                 }
