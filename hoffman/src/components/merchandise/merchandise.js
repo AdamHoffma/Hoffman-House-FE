@@ -7,6 +7,19 @@ import './merchandise.css'
 
 const Merchandise = props => {
     const [image, setImage] = useState([])
+    const [merch, setMerch] = useState([])
+    console.log('HISTORY', props.history)
+    useEffect(() => {
+        axios
+        .get('http://localhost:5000/api/merchandise')
+        .then(res => {
+            setMerch(res.data)
+            console.log("res", res.data)
+        })
+        .catch(error => {
+            console.log("error", error)
+    })    
+    }, [])
     
     useEffect(() => {
         axios
@@ -23,7 +36,7 @@ const Merchandise = props => {
 
     return (
         <div>
-        <Nav />        
+        <Nav history={props.history} />        
         <CloudinaryContext>
         <div className="image_container_merchandise">
             {image.map((data, index) => {
