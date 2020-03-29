@@ -45,8 +45,13 @@ const ProductPreview = ({history}) => {
         <div className="image_container">
             <img className="product_image_preview" src={`http://res.cloudinary.com/hoffman-house/image/upload/${all.image}.jpg`} />
             <div className='text_continaer'>
-            <p className="preview_text">Description: {all.description}</p>
-            <p className="preview_text">Price: ${all.price}</p>
+                <p className="preview_text">Name: {all.name}</p>
+                <p className="preview_text">Description: {all.description}</p>                
+                <p className="preview_text">SKU: {all.SKU}</p>
+                <p className="preview_text">Price: ${all.price}</p>
+                <p className="preview_text">Quanity: {all.quanity}</p>
+                <p className="preview_text">Category: {all.category}</p>
+                <p className="preview_text">Weight: {all.weight}</p>                
             </div>
             <button onClick={Delete}>Delete</button>
             <button onClick={AddMore}>Add Another Product</button>

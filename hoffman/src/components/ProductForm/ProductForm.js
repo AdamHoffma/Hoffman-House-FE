@@ -62,9 +62,8 @@ const ProductForm = ({history, location}) => {
     console.log("PRODUCT", product)
     
     return (          
-        <div>  
-        
-                <h3 className="product_header">Add New Products</h3>
+        <div>          
+            <h3 className="product_header">Add New Products</h3>
                 <div className="outer_product_container">
                     <form className="product_form" type="submit">                
                         <input className="input" onChange={ChangeHandler} placeholder="category" name="category" type='text'/>
@@ -76,23 +75,11 @@ const ProductForm = ({history, location}) => {
                         <input className="input" onChange={ChangeHandler} placeholder="quanity" name="quanity" type='text'/>
                         <button className="button_add_product" onClick={Submit}>Add Product</button>
                     </form>
-                    <div className="image_button_container">
+                <div className="image_button_container">
                     <img className="product_image" src={`http://res.cloudinary.com/hoffman-house/image/upload/${image}.jpg`} alt="preview of upload product" />
                     <button className="upload_widget" onClick={() => showWidget(widget)} id="upload_widget" className="cloudinary-button">Upload image</button>      
-                    </div>              
-            {/* <CloudinaryContext cloudName="hoffman-house">
-            {merch.map(( data, index ) => (
-                <div key={index}>
-                 <img width="400px" height="300px" src={`http://res.cloudinary.com/hoffman-house/image/upload/${data.image}.jpg`}/>
-                    <p style={{color: "silver", fontSize: "26px", textShadow: "2px 2px black"}}>{data.category}</p>
-                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.description}</p>
-                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>${data.price}</p>
-                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.weight}OZ</p>
-                    <p style={{color: "white", fontSize: "26px", textShadow: "2px 2px black"}}>{data.quanity}LEFT!</p> 
-                 </div>
-            ))}
-            </CloudinaryContext> */}
-        </div>   
+                </div>                  
+                </div>   
         </div>     
     )
 }
