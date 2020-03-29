@@ -5,6 +5,7 @@ import "../../App.css";
 
 
 const Home = props => {
+    console.log("PROPS", props)
     const [merch, setMerch] = useState([])
     const [shows, setShows] = useState([])
 

@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 
-const Nav = props => {
-
+const Nav = ({ history }) => {    
     const [merch, setMerch] = useState([])
 
     useEffect(() => {
@@ -18,6 +17,13 @@ const Nav = props => {
     
     }, [])
 
+    // const Submit = () => {
+    //     merch.map(data => {
+    //         history.push(`/merchandise/${data.category}`)
+    //     })
+        
+    // }
+
 
 return (
     <div className="container">
@@ -26,7 +32,7 @@ return (
                 <div className="dropcontainer">                
                     {merch.map(cat => {
                         return  <div className='dropdown'> 
-                                    <button href="#" className="dropbtn">{cat.category}</button>
+                                    <button onClick={() => history.push(`/merchandise/${cat.category}`)} className="dropbtn">{cat.category}</button>
                                         <div className="dropdown-content">
                                             <a href="#">{cat.description}</a>
                                         </div>

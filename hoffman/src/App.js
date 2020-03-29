@@ -14,12 +14,12 @@ import ProductCard from './components/ProductCard/ProductCard'
 function App() {
   return (
     <div className="App">
-      <Route exact path='/' component={Nav}/>
+      <Route exact path='/' render={props => <Nav history={props.history} />} />
       <Route exact path='/' component={Home}/>
       <Route exact path='/' component={Footer}/>
       <Route path='/additems' component={ItemForm}/>
       <Route path='/upload' component={imgUpload}/>
-      <Route path='/merchandise' component={Merchandise} />
+      <Route path='/merchandise/:id' component={Merchandise} />
       <Route path ='/products'  render={props => <ProductForm history={props.history} />} />
       <Route path='/preview' render={props => <ProductPreview history={props.history} />} />
       <Route path='/productcard/:id' component={ProductCard} />
