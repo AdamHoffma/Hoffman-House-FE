@@ -1,4 +1,6 @@
 .container_card {
     background-color: whitesmoke;
-    width: 80%
+    width: 80%;
+    margin: 16rem auto;
+    min-height: 60rem;
 }
