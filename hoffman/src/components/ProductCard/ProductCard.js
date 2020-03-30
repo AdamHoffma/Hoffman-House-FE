@@ -17,9 +17,9 @@ const ProductCard = props => {
     }, [])
     console.log("PRODUCT", product)
     return (
-        <div>
-            <img src={`http://res.cloudinary.com/hoffman-house/image/upload/${product.image}.jpg`} />
-            <p>{product.description}</p>
+        <div className="container_card">
+            <img className="image_card" src={`http://res.cloudinary.com/hoffman-house/image/upload/${product.image}.jpg`} />
+            <p className="card_text">{product.description}</p>
         </div>
     )
 }
