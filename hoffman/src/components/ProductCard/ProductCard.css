@@ -1,15 +1,18 @@
 .container_card {
     background-color: whitesmoke;
     width: 80%;
-    margin: 10rem auto;
-    min-height: 60rem;
+    margin: 7rem auto;
+    min-height: 50rem;
 }
 
 .inner_container_card {
-    padding-top: 10rem;
+    padding-top: 5rem;
     display: flex;
+    flex-direction: column;
 }
 
 .image_card {
     padding-left: 1rem;
+    width: 50%;
+    margin: auto
 }
